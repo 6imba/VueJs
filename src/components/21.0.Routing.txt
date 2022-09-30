@@ -1,0 +1,94 @@
+
+    - install vue routing package: >npm i vue-router@next
+    > npm i vue-router@next
+    - make routing file. routes.js
+
+
+
+# Components:
+    - Home Component
+    <template>
+        My Home Page
+    </template>
+
+    <script>
+        export default {
+            name: 'Home',
+        }
+    </script>
+
+    - About Component
+    <template>
+        My About Page
+    </template>
+
+    <script>
+        export default {
+            name: 'About',
+        }
+    </script>
+
+    - Contact Component
+    <template>
+        My Contact Page
+    </template>
+
+    <script>
+        export default {
+            name: 'Contact',
+        }
+    </script>
+
+
+
+# routes.js:
+    import { createWebHistory,createRouter } from "vue-router";
+
+    import Home from './components/21.1.RoutingHome.vue'
+    import About from './components/21.2.RoutingAbout.vue'
+    import Contact from './components/21.3.RoutingContact.vue'
+
+    const routes = [
+        {
+            name: 'HomePage',
+            path: '/',
+            component: Home
+        },
+        {
+            name: 'AboutPage',
+            path: '/about',
+            component: About
+        },
+        {
+            name: 'ContactPage',
+            path: '/contact',
+            component: Contact
+        },
+    ]
+
+
+    const router = createRouter({
+        history: createWebHistory(),
+        routes
+    })
+
+    export default router;
+
+
+
+# main.js:
+    import router from './routes.js'
+    createApp(App).use(router).mount('#app')
+
+
+
+# App.vue:
+    <template>
+    <!-- routing -->
+    <router-link to="/">Home </router-link>
+    <router-link to="about">About </router-link>
+    <router-link to="contact">Contact </router-link>
+    <hr>
+    <router-view></router-view>
+    </template>
+

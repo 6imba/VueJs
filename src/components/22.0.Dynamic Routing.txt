@@ -1,0 +1,3 @@
+- When ever we need to pass data through routing its called dynamic routing.
+- we can get data passed though routing url into our component.
+- 
